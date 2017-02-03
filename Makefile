@@ -6,14 +6,18 @@ default: all
 
 all: clean getdeps fmt build install
 
+build: clean getdeps fmt build install
+
+local: fmt binary install
+
 fmt:
 	${MAKE_SCRIPT} fmt
 
 build:
 	${MAKE_SCRIPT} binary
 
-getdeps:
-	${MAKE_SCRIPT} getdeps
+updatedeps:
+	${MAKE_SCRIPT} update-deps
 
 install:
 	${MAKE_SCRIPT} install

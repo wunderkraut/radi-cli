@@ -2,21 +2,21 @@
 set -e
 
 # Get rid of existing binary
-rm -f "${KRAUT_BUILD_BINARY_PATH}"
+rm -f "${RADI_BUILD_BINARY_PATH}"
 
 go generate
 
 BUILDTIME=$(date --rfc-3339 ns | sed -e 's/ /T/') &> /dev/null
 GITCOMMIT=$(git rev-parse --short HEAD)
 
-echo "  --> Building ${KRAUT_BUILD_BINARY_PATH}"
+echo "  --> Building ${RADI_BUILD_BINARY_PATH}"
 
-mkdir -p "${KRAUT_BUILD_PATH}"
+mkdir -p "${RADI_BUILD_PATH}"
 
 # Build cli binaries
 go build \
    -p 2 \
    -v \
-   -ldflags="-w -X ${KRAUT_PKG}/version.GITCOMMIT=${GITCOMMIT} -X ${KRAUT_PKG}/version.BUILDTIME=${BUILDTIME} -X ${KRAUT_PKG}/version.SHOWWARNING=${SHOWWARNING}" \
-   -o "${KRAUT_BUILD_BINARY_PATH}" \
+   -ldflags="-w -X ${RADI_PKG}/version.GITCOMMIT=${GITCOMMIT} -X ${RADI_PKG}/version.BUILDTIME=${BUILDTIME} -X ${RADI_PKG}/version.SHOWWARNING=${SHOWWARNING}" \
+   -o "${RADI_BUILD_BINARY_PATH}" \
    ./main

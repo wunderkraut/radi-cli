@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-echo "  --> Cleaning by removing build : ${KRAUT_BUILD_BINARY_PATH}"
+echo "  --> Cleaning by removing build : ${RADI_BUILD_BINARY_PATH}"
 
 # Get rid of existing binary
-rm -f "${KRAUT_BUILD_BINARY_PATH}"
+rm -f "${RADI_BUILD_BINARY_PATH}"

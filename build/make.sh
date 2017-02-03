@@ -10,14 +10,14 @@ export GOOS="${GOOS:-linux}" # Perhaps you would prefer "osx" ?
 export GOARCH="${GOARCH:-amd64}"
 export GOVERSION="latest"
 
-export KRAUT_PKG='github.com/wunder/radi-cli'
-export KRAUT_BUILD_PATH="./bin"
-export KRAUT_BINARY_NAME="radi"
+export RADI_PKG='github.com/wunder/radi-cli'
+export RADI_BUILD_PATH="./bin"
+export RADI_BINARY_NAME="radi"
 
-export KRAUT_BUILD_BINARY_PATH="${KRAUT_BUILD_PATH}/${KRAUT_BINARY_NAME}"
+export RADI_BUILD_BINARY_PATH="${RADI_BUILD_PATH}/${RADI_BINARY_NAME}"
 
-[ -z "${KRAUT_INSTALL_PATH}" ] && export KRAUT_INSTALL_PATH="${GOPATH}/bin"
-export KRAUT_INSTALL_BINARY="${KRAUT_INSTALL_PATH}/${KRAUT_BINARY_NAME}"
+[ -z "${RADI_INSTALL_PATH}" ] && export RADI_INSTALL_PATH="${GOPATH}/bin"
+export RADI_INSTALL_BINARY="${RADI_INSTALL_PATH}/${RADI_BINARY_NAME}"
 
 # Build a bundle
 bundle() {
