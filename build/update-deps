@@ -1,5 +1,5 @@
 #!/bin/bash
-set -e
+
 
 echo "  --> updating go dependencies"
 
@@ -19,9 +19,17 @@ github.com/james-nesbitt/init-go
 github.com/wunderkraut/radi-api
 github.com/wunderkraut/radi-handlers"
 
+
+NEWGOPATH="$(mktemp --directory)"
+echo " -> using ${NEWGOPATH} as a temporary GOPATH"
+
 for DEP in $DEPS; do
 	echo "     - ${DEP}"
-	go get -u ${DEP}
+	GOPATH="${NEWGOPATH}" go get -u ${DEP}
 done
+
+rm -rf "/vendor"
+mv "${NEWGOPATH}/src" "./vendor"
+rm -rf "${NEWGOPATH}"
 
 echo "  --- Finished dependency update"

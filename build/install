@@ -1,6 +1,6 @@
 #!/bin/bash
 set -e
 
-echo "  --> Installing last compiled binary (${KRAUT_BUILD_BINARY_PATH}) to: ${KRAUT_INSTALL_PATH}"
+echo "  --> Installing last compiled binary (${RADI_BUILD_BINARY_PATH}) to: ${RADI_INSTALL_PATH}"
 
-cp "${KRAUT_BUILD_BINARY_PATH}" "${KRAUT_INSTALL_BINARY}"
+cp "${RADI_BUILD_BINARY_PATH}" "${RADI_INSTALL_BINARY}"
