@@ -59,6 +59,17 @@ func MakeLocalAPI(settings handler_local.LocalAPISettings) (api_api.API, error) 
 
 		ActivateConfigBuilders(localProject, settings, bootstrapConfigWrapper)
 
+		validateResult := localProject.Validate()
+		<-validateResult.Finished()
+		if !validateResult.Success() {
+			errs := validateResult.Errors()
+			if len(errs) > 0 {
+				err = errs[len(errs)-1]
+			} else {
+				err = errors.New("Secure local builder could not build a valid project")
+			}
+		}
+
 		return localProject.API(), err
 	}
 
