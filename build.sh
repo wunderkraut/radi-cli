@@ -37,7 +37,7 @@ chmod u+x Makefile
 #  - build in a valid gopath to get active vendor dependencies
 #  - pass in env variables for environment control
 docker run --rm -ti \
-	-v "${EXEC_PATH}:/go/src/${INTERNAL_LIBRARY_PATH}" \
+	-v "${EXEC_PATH}:/go/src/${INTERNAL_LIBRARY_PATH}:Z" \
 	-v "/go/src/${INTERNAL_LIBRARY_PATH}/.git/modules/vendor" \
 	-v "/go/src/${INTERNAL_LIBRARY_PATH}/vendor" \
 	-e "GOOS=${GOOS}" \
